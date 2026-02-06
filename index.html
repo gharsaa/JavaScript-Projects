@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sunny Baking</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #fff8e1;
+      color: #4a2c00;
+    }
+
+    header {
+      background-color: #ffb703;
+      text-align: center;
+      padding: 30px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      color: #7a3e00;
+    }
+
+    nav {
+      background-color: #fb8500;
+      text-align: center;
+      padding: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #ffd166;
+    }
+
+    .recipes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: #fb8500;
+      margin: 10px 0;
+    }
+
+    .gallery-img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #ffb703;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* LIGHTBOX */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    #close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Sunny Baking</h1>
+    <p>Warm, sweet, and homemade</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#recipes">Recipes</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Made with Love & Butter 🧁</h2>
+    <p>Simple baking recipes anyone can make.</p>
+  </section>
+
+  <section class="recipes" id="recipes">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603079843244-1e0bff64d1a6" class="gallery-img" alt="Vanilla Cake">
+      <h3>Classic Vanilla Cake</h3>
+      <p>Soft, fluffy, and perfect for any occasion.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1599785209707-28a88e6b6a76" class="gallery-img" alt="Cookies">
+      <h3>Chocolate Chip Cookies</h3>
+      <p>Golden edges with gooey centers.</p>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" class="gallery-img" alt="Banana Bread">
+      <h3>Banana Bread</h3>
+      <p>Moist, comforting, and lightly sweet.</p>
+    </div>
+
+  </section>
+
+  <footer id="contact">
+    <p>© 2025 Sunny Baking</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <span id="close">&times;</span>
+    <img id="lightbox-img">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery-img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const close = document.getElementById('close');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    close.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
